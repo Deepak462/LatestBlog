@@ -32,30 +32,6 @@ public class Category {
 	
 	@Column(name="description")
 	private String categoryDesc;
-
-	public Integer getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(Integer categoryId) {
-		this.categoryId = categoryId;
-	}
-
-	public String getCategoryTitle() {
-		return categoryTitle;
-	}
-
-	public void setCategoryTitle(String categoryTitle) {
-		this.categoryTitle = categoryTitle;
-	}
-
-	public String getCategoryDesc() {
-		return categoryDesc;
-	}
-
-	public void setCategoryDesc(String categoryDesc) {
-		this.categoryDesc = categoryDesc;
-	}
 	
 	@OneToMany(mappedBy="category",cascade=CascadeType.ALL,fetch=FetchType.LAZY)
 	private List<Post> posts=new ArrayList<>();

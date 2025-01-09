@@ -3,6 +3,7 @@ package com.project.blog.blogproject.services.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.sun.xml.bind.v2.TODO;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,14 +22,14 @@ public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	private ModelMapper mp;
-	
+
 	@Override
 	public UserDto createUser(UserDto userDto) {
-		// TODO Auto-generated method stub
 		User user=this.UserDtoToUser(userDto);
 		userRepo.save(user);
 		return userDto;
 	}
+
 
 	@Override
 	public UserDto updateUser(UserDto userDto, Integer user_id) {
@@ -40,7 +41,18 @@ public class UserServiceImpl implements UserService {
 		user.setPassword(userDto.getPassword());
 		
 		userRepo.save(user);
-		
+
+		// in response body in postman we are getting all field values updated
+		// but id value is showing 0 but it is updated successfully so setting id here
+//		like this {
+//			        "id": 0,
+//					"name": "someone",
+//					"email": "HAH@gmail.com",
+//					"password": "nhi batara",
+//					"about": "ye bhi koi to h"
+//		}
+		userDto.setId(user_id);
+		// after adding above line it is showing correct id
 		return userDto;
 	}
 

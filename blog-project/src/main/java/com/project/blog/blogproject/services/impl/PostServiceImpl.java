@@ -51,43 +51,36 @@ public class PostServiceImpl implements PostService {
 
 	@Override
 	public PostDto updatePost(PostDto postDto, Integer postId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public void deletePost(Integer postId) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public List<PostDto> getAllPosts() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public PostDto getPostById(Integer postId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<PostDto> getPostsByCategory(Integer categoryId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<PostDto> getPostsByUser(Integer userId) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<PostDto> searchPosts(String keyword) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

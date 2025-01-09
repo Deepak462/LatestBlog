@@ -25,7 +25,8 @@ import com.project.blog.blogproject.services.UserService;
 public class UserController {
 	@Autowired
 	private UserService userService;
-	
+
+	//TODO while crating new user, even if we add id it doesnot matter as id is getting auto generated please check
 	@PostMapping("/")
 	public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto userDto){
 		UserDto createdUser=this.userService.createUser(userDto);
@@ -37,11 +38,12 @@ public class UserController {
 		UserDto updatedUser=this.userService.updateUser(userDto,uid);
 		return ResponseEntity.ok(updatedUser);
 	}
-	
-	@DeleteMapping("/{user_id}")
-	public ResponseEntity<ApiResponse> deleteUser(@PathVariable("user_id") Integer uid){
-		this.userService.deleteUser(uid);
-		return new ResponseEntity(new ApiResponse("User Deleted successfully",true),HttpStatus.GONE);
+
+	//TODO send proper response for non existing user to delete
+	@DeleteMapping("/{userId}")
+	public ResponseEntity<ApiResponse> deleteUser(@PathVariable Integer userId){
+		this.userService.deleteUser(userId);
+		return new ResponseEntity<>(new ApiResponse("User Deleted successfully",true),HttpStatus.GONE);
 	}
 	
 	@GetMapping("/")
