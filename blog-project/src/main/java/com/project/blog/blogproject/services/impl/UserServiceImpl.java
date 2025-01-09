@@ -74,8 +74,8 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void deleteUser(Integer user_id) {
-
-		userRepo.deleteById(user_id);
+		User user=userRepo.findById(user_id).orElseThrow(()-> new ResourceNotFoundException("User","id",user_id));
+		userRepo.delete(user);
 	}
 	
 	public User UserDtoToUser(UserDto userDto) {

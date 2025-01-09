@@ -21,7 +21,11 @@ public class GlobalExceptionHandler {
 		ApiResponse apiResponse=new ApiResponse(message,false);
 		return new ResponseEntity<ApiResponse>(apiResponse,HttpStatus.NOT_FOUND);
 	}
-	
+
+
+	//Because of @valid validations we get error MethodArgumentNotValidException
+	// so creating this exception handler here
+
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	public ResponseEntity<Map<String,String>> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex){
 		Map<String,String> resp=new HashMap<>();
