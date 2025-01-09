@@ -28,7 +28,7 @@ public class Category {
 	private Integer categoryId;
 	
 	@Column(name="title",nullable=false,length=100)
-	private @Setter @Getter String categoryTitle;
+	private String categoryTitle;
 	
 	@Column(name="description")
 	private String categoryDesc;

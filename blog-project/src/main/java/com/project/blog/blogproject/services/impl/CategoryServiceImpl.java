@@ -25,7 +25,8 @@ public class CategoryServiceImpl implements CategoryService {
 	public CategoryDto createCategory(CategoryDto categoryDto) {
 		Category cat=this.modelMapper.map(categoryDto, Category.class);
 		this.categoryRepo.save(cat);
-		return this.modelMapper.map(cat, CategoryDto.class);
+		categoryDto.setCategoryId(cat.getCategoryId());
+		return categoryDto;
 	}
 
 	@Override
@@ -50,6 +51,7 @@ public class CategoryServiceImpl implements CategoryService {
 		return catDtos;
 	}
 
+	//TODO getting exception HttpRequestMethodNotSupportedException when no id is entered so handle this
 	@Override
 	public void deleteCategory(Integer categoryId) {
 		Category cat=this.categoryRepo.findById(categoryId).orElseThrow(()->new ResourceNotFoundException("Category","Category Id",categoryId));
