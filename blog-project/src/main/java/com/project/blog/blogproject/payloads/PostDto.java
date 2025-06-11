@@ -6,7 +6,13 @@ import javax.persistence.ManyToOne;
 
 import com.project.blog.blogproject.entity.Category;
 import com.project.blog.blogproject.entity.User;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
+@NoArgsConstructor
 public class PostDto {
 
 	private String title;
@@ -17,8 +23,8 @@ public class PostDto {
 	
 	private Date addedDate;
 	
-	private Category category;
+	private CategoryDto category;
 	
-	private User user;
+	private UserDto user;
 
 }
