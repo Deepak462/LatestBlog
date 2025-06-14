@@ -1,5 +1,6 @@
 package com.project.blog.blogproject.controller;
 
+import com.project.blog.blogproject.payloads.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -55,4 +56,15 @@ public class PostController {
 		return new ResponseEntity<PostDto>(post, HttpStatus.OK);
 	}
 
+	@DeleteMapping("/posts/{postId}")
+	public ApiResponse deletePost(@PathVariable Integer postId){
+		postService.deletePost(postId);
+		return new ApiResponse("Post is deleted successfully",true);
+	}
+
+	@PutMapping("/posts/{postId}")
+	public ResponseEntity<PostDto> updatePost(@RequestBody PostDto postDto, @PathVariable Integer postId){
+		PostDto updatedPost=postService.updatePost(postDto,postId);
+		return new ResponseEntity<PostDto>(updatedPost, HttpStatus.OK);
+	}
 }
